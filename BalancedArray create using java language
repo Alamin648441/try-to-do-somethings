@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class BalancedArray {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int t = scanner.nextInt();
+
+        while (t-- > 0) {
+            int n = scanner.nextInt();
+            int[] result = new int[n];
+            int half = n / 2;
+
+            if (half % 2 != 0) {
+                System.out.println("NO");
+            } else {
+                System.out.println("YES");
+                int even_Sum = 0, odd_Sum = 0;
+
+                for (int i = 0; i < half; i++) {
+                    result[i] = 2 * (i + 1);
+                    even_Sum += result[i];
+                }
+                for (int i = 0; i < half - 1; i++) {
+                    result[half + i] = 2 * i + 1;
+                    odd_Sum += result[half + i];
+                }
+
+                result[n - 1] = even_Sum - odd_Sum;
+
+
+                for (int num : result) {
+                    System.out.print(num + " ");
+                }
+
+            }
+        }
+    }
+}
