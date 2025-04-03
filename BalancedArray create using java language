@@ -3,10 +3,11 @@ import java.util.Scanner;
 public class BalancedArray {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
+        System.out.println("Enter your test case:");
         int t = scanner.nextInt();
 
         while (t-- > 0) {
+            System.out.println("Enter your Array Size :");
             int n = scanner.nextInt();
             int[] result = new int[n];
             int half = n / 2;
