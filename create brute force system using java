@@ -1,0 +1,63 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class BruteForce {
+
+    public static String character_genarator() {
+        StringBuffer char_gen_sb = new StringBuffer();
+
+        for (char alpha = 'a'; alpha <= 'z'; alpha++) {
+            char_gen_sb.append(alpha);
+        }
+        for (char Alpha = 'A'; Alpha <= 'Z'; Alpha++) {
+            char_gen_sb.append(Alpha);
+        }
+        for (int num = 0; num <= 9; num++) {
+            char_gen_sb.append(num);
+        }
+        char_gen_sb.append("~!@#$%^&*()_+- =");
+        return char_gen_sb.toString();
+    }
+
+    public static String listToString(List<Character> list) {
+        StringBuffer sb = new StringBuffer();
+
+        for (char c : list) {
+            sb.append(c);
+
+        }
+        return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String characters = character_genarator();
+        System.out.println("Enter your Target word :");
+        String target = scanner.nextLine();
+        int findIndex = 0;
+
+        List<Character> list = new ArrayList<>();
+
+        while (findIndex < target.length()) {
+            for (char c : characters.toCharArray()) {
+                System.out.println("Trying :" + listToString(list) + c);
+
+                if (c == target.charAt(findIndex)) {
+                    list.add(c);
+                    findIndex++;
+                    break;
+                }
+                try {
+                    Thread.sleep(100);
+                } catch (Exception e) {
+
+                }
+            }
+
+        }
+        System.out.print("found target" + listToString(list));
+
+
+    }
+}
