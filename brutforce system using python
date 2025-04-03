@@ -1,0 +1,20 @@
+import string
+import time 
+
+characters = string.ascii_letters +string.digits +string.punctuation+string.hexdigits+string.whitespace
+
+target = input()
+list=[]
+find_index =0
+
+while(find_index <len(target)):
+    for c in characters:
+       print(f"Trying:{''.join(list)}{c}")
+
+       if (c==target[find_index]):
+           list.append(c)
+           find_index +=1
+           time.sleep(0.1)
+           break
+
+print("make your target :",''.join(list))
